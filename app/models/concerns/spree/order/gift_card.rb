@@ -15,7 +15,7 @@ module Spree
         raise 'Gift Card payment method could not be found' unless payment_method
 
         if Flipper.enabled?(:allow_multiple_gift_cards)
-          amount_to_take = gift_card_amount(gift_card, outstanding_balance_for_gift_cards_payments)
+          amount_to_take = gift_card_amount(gift_card, outstanding_balance_for_multiple_gift_cards_payments)
         else
           amount_to_take = gift_card_amount(gift_card, outstanding_balance_after_applied_store_credit)
         end
@@ -90,7 +90,7 @@ module Spree
         end
       end
 
-      def outstanding_balance_for_gift_cards_payments
+      def outstanding_balance_for_multiple_gift_cards_payments
         total - payments.valid.sum(:amount)
       end
     end
