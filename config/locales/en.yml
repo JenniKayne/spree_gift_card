@@ -7,6 +7,7 @@ en:
     current_value: "Current Value"
     errors:
       gift_card:
+        no_remaining_cash: 'Gift Card amount remaining is 0. Please select another payment method.'
         greater_than_current_value: "can not be more than current_value"
         unauthorized: 'You are not authorized to perform this action.'
         already_redeemed: 'Gift Card has already been redeemed.'

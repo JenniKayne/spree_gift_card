@@ -8,7 +8,14 @@ Spree::CheckoutController.class_eval do
     if spree_current_user.present? && !spree_current_user.gift_cards.include?(@gift_card)
       spree_current_user.gift_cards << @gift_card
     end
-    @order.add_gift_card_payments(@gift_card)
+
+    if @gift_card.amount_remaining == 0
+      redirect_to checkout_state_path(@order.state)
+      flash[:success] = Spree.t('no_remaining_cash')
+      return
+    else
+      @order.add_gift_card_payments(@gift_card)
+    end
 
     # Remove other payment method parameters.
     params[:order].delete(:payments_attributes)
