@@ -1,6 +1,7 @@
 en:
   spree:
     allow_gift_card_redeem: "Allow Gift Card to be Redeemed"
+    already_used: 'Gift Card has already been used. Please use another gift card or payment method.'
     apply: "Apply"
     back_to_gift_cards_list: "Back to Gift Cards List"
     buy_gift_card: "Buy gift card"
