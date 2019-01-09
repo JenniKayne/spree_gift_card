@@ -5,7 +5,7 @@ Spree::CheckoutController.class_eval do
   private
 
   def add_gift_card_payments
-    @order.payments.each do |payment|
+    @order.payments.checkout.each do |payment|
       if payment.source == @gift_card
         redirect_to checkout_state_path(@order.state)
         flash[:error] = Spree.t('already_used')
