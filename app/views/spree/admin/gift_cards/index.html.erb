@@ -23,6 +23,7 @@
       <th><%= Spree.t(:sender_email) %></th>
       <th><%= Spree.t(:sender_name) %></th>
       <th><%= Spree.t(:note) %></th>
+      <th><%= Spree.t(:date_issued) %></th>
       <th class="actions" width="100"></th>
     </tr>
   </thead>
@@ -38,6 +39,7 @@
         <td><%= card.sender_email %></td>
         <td><%= card.sender_name %></td>
         <td><%= card.note %></td>
+        <td><%= card.date_issued %></td>
         <td class="actions">
           <%= link_to_edit card, no_text: true if can?(:edit, card) %>
           &nbsp;

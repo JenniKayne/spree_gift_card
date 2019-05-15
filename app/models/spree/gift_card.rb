@@ -176,6 +176,10 @@ module Spree
       %w[checkout pending].include?(payment.state)
     end
 
+    def date_issued
+      created_at.strftime("%d/%m/%Y %I:%M %p")
+    end
+
     private
 
     def redeem(user)
