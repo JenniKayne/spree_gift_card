@@ -177,7 +177,7 @@ module Spree
     end
 
     def date_issued
-      created_at.strftime("%d/%m/%Y %I:%M %p")
+      created_at.strftime("%m/%d/%Y %I:%M %p")
     end
 
     private
