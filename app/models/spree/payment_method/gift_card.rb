@@ -68,6 +68,11 @@ module Spree
       true
     end
 
+    def cancel(response)
+      @payment = Spree::Payment.find_by(response_code: response)
+      credit(@payment.amount.to_f, response, @payment.gateway_options)
+    end
+
     private
 
     def sync_integrated_gift_card(_gift_card)
