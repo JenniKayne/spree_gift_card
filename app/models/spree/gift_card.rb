@@ -35,7 +35,8 @@ module Spree
 
     scope :active, -> { where(active: true) }
     scope :inactive, -> { where(active: false) }
-    scope :deliverable, -> { active.where('sent_at IS NULL AND (delivery_on IS NULL OR delivery_on <= ?)', Time.now) }
+    scope :approved, -> { where(is_approved: true) }
+    scope :deliverable, -> { active.approved.where('sent_at IS NULL AND (delivery_on IS NULL OR delivery_on <= ?)', Time.now) }
 
     def e_gift_card?
       variant.product.is_e_gift_card?
