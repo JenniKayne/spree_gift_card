@@ -43,7 +43,8 @@ module Spree
           :original_value,
           :sender_name,
           :sender_email,
-          :delivery_on
+          :delivery_on,
+          :is_approved
         )
       end
     end
